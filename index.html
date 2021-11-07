@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class= "container">
+        <div class="buttoncontainer">
+    <div data-key="65" class="btn">
+        <kbd>A</kbd>
+    </div>
+
+    <div data-key="83" class="btn">
+        <kbd>S</kbd>
+    </div>
+
+    <div data-key="68" class="btn">
+        <kbd>D</kbd>
+    </div>
+
+    <div data-key="70" class="btn">
+        <kbd>F</kbd>
+    </div>
+
+    <div data-key="71" class="btn">
+        <kbd>G</kbd>
+    </div>
+
+    <div data-key="72" class="btn">
+        <kbd>H</kbd>
+    </div>
+
+    <div data-key="74" class="btn">
+        <kbd>J</kbd>
+    </div>
+
+    <div data-key="75" class="btn">
+        <kbd>K</kbd>
+    </div>
+
+    <div data-key="76" class="btn">
+        <kbd>L</kbd>
+    </div>
+</div>
+</div>
+
+
+<audio data-key="65" src="./clap.wav"></audio>
+<audio data-key="83" src="./hihat.wav"></audio>
+<audio data-key="68" src="./kick.wav"></audio>
+<audio data-key="70" src="./openhat.wav"></audio>
+<audio data-key="71" src="./boom.wav"></audio>
+<audio data-key="72" src="./ride.wav"></audio>
+<audio data-key="74" src="./snare.wav"></audio>
+<audio data-key="75" src="./tom.wav"></audio>
+<audio data-key="76" src="./tink.wav"></audio>
+
+<script>
+    
+window.addEventListener("keydown", (e) => {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`)
+    const btn = document.querySelector(`.btn[data-key="${e.keyCode}"]`)    
+    if( !audio ) return; // If there is no audio associated with the key then return
+    audio.currentTime = 0; // Stop the sudi and rewind to the start
+    audio.play();
+    btn.classList.add('playing');
+    function removesound(e){
+        if ( e.propertyName !== 'box-shadow') return;
+        btn.classList.remove('playing')
+    }
+    const btns = document.querySelectorAll('.btn')    
+    btns.forEach( key => key.addEventListener('transitionend', removesound));
+});
+    
+    
+    
+
+
+</script>
+</body>
+</html>

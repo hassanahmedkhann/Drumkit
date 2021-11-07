@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  background-image: url(/img1.jpg);
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 1200px;
+  height: 600px;
+  margin-left: 180px;
+  background-image: 100%;
+}
+
+.buttoncontainer {
+  display: flex;
+  margin-top: 220px;
+  margin-left: 230px;
+  width: 100%;
+}
+.btn {
+  color: black;
+  position: inherit;
+  padding: 15px;
+  margin: 5px;
+  font-size: 40px;
+  border: 1px solid black;
+  transition: 0.07s;
+}
+
+.playing {
+  transform: scale(1.2);
+  border-color: #ffc600;
+  box-shadow: 0 0 10px #ffc600;
+}
